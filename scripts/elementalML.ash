@@ -17,8 +17,8 @@ float pow(float base, int exponent) {
 float reduction(float your_relevant_elem_res) {
     if(your_relevant_elem_res < 4) {
 		float res = your_relevant_elem_res/10;
-		if(my_class() == $class[sauceror] || my_class() == $class[pastamancer]) {
-			float res = res + 0.05;
+		if(my_primestat() == $stat[mysticality]) {
+			res = res + 0.05;
 		}
         return 1 - res;
     } else {
@@ -26,8 +26,8 @@ float reduction(float your_relevant_elem_res) {
 		 float fraction = 5.0/6;
 		 float first = pow(fraction, res);
 		 float second = 0.1 + (0.5 * first);
-		 if(my_class() == $class[sauceror] || my_class() == $class[pastamancer]) {
-			float second = second - 0.05;
+		if(my_primestat() == $stat[mysticality]) {
+			second = second - 0.05;
 		}
         return second;
     }

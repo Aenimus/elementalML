@@ -35,8 +35,8 @@ void main() {
     print("You will take approximately " + rounder(damage(hot),-1) + " from a hot monster's initial elemental hit.", "red");
     print("You will take approximately " + rounder(damage(cold),-1) + " from a cold monster's initial elemental hit.", "blue");
     print("You will take approximately " + rounder(damage(spooky),-1) + " from a spooky monster's initial elemental hit.", "gray");
-    print("You will take approximately " + rounder(damage(stench),-1) + " from a sleaze monster's initial elemental hit.", "green");
-    print("You will take approximately " + rounder(damage(sleaze),-1) + " from a stench monster's initial elemental hit.", "purple");	
+    print("You will take approximately " + rounder(damage(stench),-1) + " from a stench monster's initial elemental hit.", "green");
+    print("You will take approximately " + rounder(damage(sleaze),-1) + " from a sleaze monster's initial elemental hit.", "purple");	
 	print("Remember that this version is for scaling monsters.", "green");
 }
 

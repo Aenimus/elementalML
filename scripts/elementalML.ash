@@ -27,7 +27,7 @@ float reduction(float your_relevant_elem_res) {
 		 float first = pow(fraction, res);
 		 float second = 0.1 + (0.5 * first);
 		 if(my_class() == $class[sauceror] || my_class() == $class[pastamancer]) {
-			float second = second + 0.05;
+			float second = second - 0.05;
 		}
         return second;
     }

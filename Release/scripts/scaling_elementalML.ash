@@ -31,7 +31,12 @@ float rounder(float number, int place) {
 }
 
 void main() {
-    notify aenimus;
+	if(!get_property("noAnus").to_boolean() && user_confirm("Would you like to tell Aenimus that you're using this script? It would be nice to know, but feel free to say no.")) {
+		notify aenimus;
+		set_property("noAnus", "true");
+	} else {
+		set_property("noAnus", "true");
+	}
     print("You will take approximately " + rounder(damage(hot),-1) + " from a hot monster's initial elemental hit.", "red");
     print("You will take approximately " + rounder(damage(cold),-1) + " from a cold monster's initial elemental hit.", "blue");
     print("You will take approximately " + rounder(damage(spooky),-1) + " from a spooky monster's initial elemental hit.", "gray");

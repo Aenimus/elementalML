@@ -8,7 +8,7 @@ element stench = $element[stench];
 
 // Special thanks to Phillammon for helping me with this!
 
-float pow(float base, int exponent) {
+/*float pow(float base, int exponent) {
 	float result = 1.0;
 	if(exponent == 0) {
 		return 1.0;
@@ -20,7 +20,7 @@ float pow(float base, int exponent) {
 	return result;
 }
 
-/*float reduction(float your_relevant_elem_res) {
+float reduction(float your_relevant_elem_res) {
     if(your_relevant_elem_res < 4) {
 		float res = your_relevant_elem_res/10;
 		if(my_primestat() == $stat[mysticality]) {
@@ -61,11 +61,11 @@ float rounder(float number, int place) {
 }
 
 void main(float monster_natural_ML) {
-	if(!get_property("noAnus").to_boolean() && user_confirm("Would you like to tell Aenimus that you're using this script? It would be nice to know, but feel free to say no.")) {
+	if(!get_property("noEle").to_boolean() && user_confirm("Would you like to tell Aenimus that you're using this script? It would be nice to know, but feel free to say no.")) {
 		notify aenimus;
-		set_property("noAnus", "true");
+		set_property("noEle", "true");
 	} else {
-		set_property("noAnus", "true");
+		set_property("noEle", "true");
 	}
     print("You will take approximately " + rounder(damage(monster_natural_ML, hot),-1) + " from a hot monster's initial elemental hit.", "red");
     print("You will take approximately " + rounder(damage(monster_natural_ML, cold),-1) + " from a cold monster's initial elemental hit.", "blue");

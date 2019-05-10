@@ -6,6 +6,12 @@ element spooky = $element[spooky];
 element sleaze = $element[sleaze];
 element stench = $element[stench];
 
+if(!get_property("aen_aliasEL").to_boolean()) {
+	cli_execute("alias el => run elementalML.ash");
+	cli_execute("alias sel => run scaling_elementalML.ash");
+	set_property("aen_aliasEL", "true");
+}
+
 // Special thanks to Phillammon for helping me with this!
 
 /*float pow(float base, int exponent) {
@@ -44,7 +50,11 @@ float totalML(float monster_natural_ML) {
 }
 
 float calcML() {
-    return monster_level_adjustment() - 25;
+	if(monster_level_adjustment() > 24) {
+		return monster_level_adjustment() - 25;
+	} else {
+		return 0;
+	}
 }
 
 float virginDMG(float monster_natural_ML) {
@@ -73,5 +83,6 @@ void main(float monster_natural_ML) {
     print("You will take approximately " + rounder(damage(monster_natural_ML, stench),-1) + " from a stench monster's initial elemental hit.", "green");
     print("You will take approximately " + rounder(damage(monster_natural_ML, sleaze),-1) + " from a sleaze monster's initial elemental hit.", "purple");	
 	print("Remember that the monster's natural ML is your mainstat for scalers.", "green");
+	print("You can now also simply type el in the CLI to run this script!.", "green");
 }
 

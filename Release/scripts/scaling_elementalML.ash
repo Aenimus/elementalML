@@ -7,6 +7,12 @@ element sleaze = $element[sleaze];
 element stench = $element[stench];
 stat myStat = my_primestat();
 
+if(!get_property("aen_aliasEL").to_boolean()) {
+	cli_execute("alias el => run elementalML.ash");
+	cli_execute("alias sel => run scaling_elementalML.ash");
+	set_property("aen_aliasEL", "true");
+}
+
 // Special thanks to Phillammon for helping me with this!
 
 float totalML() {
@@ -14,7 +20,11 @@ float totalML() {
 }
 
 float calcML() {
-    return monster_level_adjustment() - 25;
+	if(monster_level_adjustment() > 24) {
+		return monster_level_adjustment() - 25;
+	} else {
+		return 0;
+	}
 }
 
 float virginDMG() {
@@ -43,5 +53,6 @@ void main() {
     print("You will take approximately " + rounder(damage(stench),-1) + " from a stench monster's initial elemental hit.", "green");
     print("You will take approximately " + rounder(damage(sleaze),-1) + " from a sleaze monster's initial elemental hit.", "purple");	
 	print("Remember that this version is for scaling monsters.", "green");
+	print("You can now also simply type sel in the CLI to run this script!.", "green");
 }
 

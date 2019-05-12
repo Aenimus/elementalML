@@ -81,19 +81,19 @@ void main(string monsterOrML) {
 	monster chosen_monster = to_monster(monsterOrML);
 	if (monster_natural_ML == 0.0) {
 		if (chosen_monster.defense_element != $element[none]) {
-			print("You will take approximately " + rounder((damage(chosen_monster.raw_attack, chosen_monster.defense_element),-1))*1.05) + " from " + chosen_monster + "'s initial elemental hit.", "black");
+			print("You will take approximately " + rounder((damage(chosen_monster.raw_attack, chosen_monster.defense_element)*1.05),-1) + " from " + chosen_monster + "'s initial elemental hit.", "black");
 		}
 		else {
 			print("Either that monster isn't elementally aligned, or we didn't understand what you said. Enter a monster name, or a base attack value.");
 		}
 	}
 	else {
-		print("You will take approximately " + rounder((damage(monster_natural_ML, hot),-1)*1.05) + " from a hot monster's initial elemental hit.", "red");
-		print("You will take approximately " + rounder((damage(monster_natural_ML, cold),-1)*1.05) + " from a cold monster's initial elemental hit.", "blue");
-		print("You will take approximately " + rounder((damage(monster_natural_ML, spooky),-1)*1.05) + " from a spooky monster's initial elemental hit.", "gray");
-		print("You will take approximately " + rounder((damage(monster_natural_ML, stench),-1)*1.05) + " from a stench monster's initial elemental hit.", "green");
-		print("You will take approximately " + rounder((damage(monster_natural_ML, sleaze),-1)*1.05) + " from a sleaze monster's initial elemental hit.", "purple");	
+		print("You will take approximately " + rounder(damage(monster_natural_ML, hot)*1.05,-1) + " from a hot monster's initial elemental hit.", "red");
+		print("You will take approximately " + rounder(damage(monster_natural_ML, cold)*1.05,-1) + " from a cold monster's initial elemental hit.", "blue");
+		print("You will take approximately " + rounder(damage(monster_natural_ML, spooky)*1.05,-1) + " from a spooky monster's initial elemental hit.", "gray");
+		print("You will take approximately " + rounder(damage(monster_natural_ML, stench)*1.05,-1) + " from a stench monster's initial elemental hit.", "green");
+		print("You will take approximately " + rounder(damage(monster_natural_ML, sleaze)*1.05,-1) + " from a sleaze monster's initial elemental hit.", "purple");	
 		print("Remember that the monster's natural ML is your mainstat for scalers.", "green");
 		print("You can now also simply type el in the CLI to run this script!.", "green");
+	}
 }
-

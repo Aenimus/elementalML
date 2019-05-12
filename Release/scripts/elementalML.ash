@@ -79,7 +79,6 @@ void main(string monsterOrML) {
 	}
 	float monster_natural_ML = to_float(monsterOrML);
 	monster chosen_monster = to_monster(monsterOrML);
-	print(chosen_monster);
 	if (monster_natural_ML == 0.0) {
 		if (chosen_monster.defense_element != $element[none]) {
 			print("You will take approximately " + rounder(damage(chosen_monster.raw_attack, chosen_monster.defense_element),-1) + " from " + chosen_monster + "'s initial elemental hit.", "black");

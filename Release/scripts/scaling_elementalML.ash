@@ -28,11 +28,17 @@ float calcML() {
 }
 
 float virginDMG() {
-    return (totalML() * calcML())/500;
+    return ((totalML() * calcML())/500)*1.05;
 }
 
 float damage(element ele) {
-    return  virginDMG() * (1-(elemental_resistance(ele)/100));
+	if(virginDMG() == 0) {
+		return 0;
+	} else if(virginDMG() < 30) {
+		return max(1,virginDMG() - (30*elemental_resistance(ele)/100));
+	} else {
+		return max(1,virginDMG() * (1-(elemental_resistance(ele)/100)));
+	}
 }
 
 float rounder(float number, int place) {
@@ -47,11 +53,11 @@ void main() {
 	} else {
 		set_property("noEle", "true");
 	}
-	print("You will take approximately " + rounder(damage(hot)*1.05,-1) + " from a hot monster's initial elemental hit.", "red");
-	print("You will take approximately " + rounder(damage(cold)*1.05,-1) + " from a cold monster's initial elemental hit.", "blue");
-	print("You will take approximately " + rounder(damage(spooky)*1.05,-1) + " from a spooky monster's initial elemental hit.", "gray");
-	print("You will take approximately " + rounder(damage(stench)*1.05,-1) + " from a stench monster's initial elemental hit.", "green");
-	print("You will take approximately " + rounder(damage(sleaze)*1.05,-1) + " from a sleaze monster's initial elemental hit.", "purple");	
+	print("You will take approximately " + rounder(damage(hot),0) + " from a hot monster's initial elemental hit.", "red");
+	print("You will take approximately " + rounder(damage(cold),0) + " from a cold monster's initial elemental hit.", "blue");
+	print("You will take approximately " + rounder(damage(spooky),0) + " from a spooky monster's initial elemental hit.", "gray");
+	print("You will take approximately " + rounder(damage(stench),0) + " from a stench monster's initial elemental hit.", "green");
+	print("You will take approximately " + rounder(damage(sleaze),0) + " from a sleaze monster's initial elemental hit.", "purple");	
 	print("Remember that this version is for scaling monsters.", "green");
 	print("You can now also simply type sel in the CLI to run this script!.", "green");
 }
